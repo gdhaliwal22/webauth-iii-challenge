@@ -4,7 +4,7 @@ const cors = require("cors");
 const logger = require("./middleware/logger.js");
 
 const authRouter = require("./auth/auth-router.js");
-const userRouter = require("./users/user-router");
+const usersRouter = require("./users/user-router.js");
 
 const server = express();
 
@@ -14,10 +14,10 @@ server.use(cors());
 server.use(logger);
 
 server.use("/api", authRouter);
-server.use("/api/users", userRouter);
+server.use("/api/users", usersRouter);
 
 server.get("/", (req, res) => {
-  res.send("Server is working");
+  res.send("Server is working!");
 });
 
 module.exports = server;
